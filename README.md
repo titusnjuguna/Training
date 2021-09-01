@@ -1,2 +1,4 @@
 # Training
-Store learning/experimental code
+## Introduction
+The Purpose of this repository is to store experimental and learning codes.
+
