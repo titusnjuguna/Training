@@ -8,6 +8,10 @@ function getUserNumberInput(){
     return parseInt(userInput.value);
 
 }
+function calculationDescription(operator, enteredNum,firsNum){
+     const calcDescription  = `${firsnum} ${operator} ${enteredNum}`
+     return calcDescription
+}
 
 function writeLog(oper,fNum,secdNum,resltNum){
     logEntry = {
@@ -21,15 +25,26 @@ function writeLog(oper,fNum,secdNum,resltNum){
 
 }
 
-
-
-function addNum(){
+function calculateResult(calculationType){
     const gotNum = getUserNumberInput();
     const calcDescription = `${currentResult} + ${gotNum}`;
     const initialNum = currentResult;
-    currentResult += gotNum;
-    outputResult(currentResult, calcDescription);
-    writeLog('ADD',gotNum,initialNum,currentResult)
+    let mathOperator;
+    if(calculationType == 'ADD'){
+        currentResult += gotNum;
+        mathOperator = '+'
+    }
+    else{
+        currentResult -= gotNum;
+        mathOperator = '-'
+
+    }    
+    outputResult(currentResult, calculationDescription);
+    writeLog(calculationType,gotNum,initialNum,currentResult)
+}
+
+function addNum(){
+    calculateResult('ADD');    
 }
 
 function multiplyNum(){
@@ -50,12 +65,7 @@ function divideNum(){
     writeLog('DIVIDE',gotNum,initialNum,currentResult)
 }
 function subtractNum(){
-    const gotNum = getUserNumberInput();
-    const calcDescription = `${currentResult} - ${gotNum}`;
-    const initialNum = currentResult;
-    currentResult -= gotNum;
-    outputResult(currentResult, calcDescription);
-    writeLog('SUBTRACT',gotNum,initialNum,currentResult)
+    calculateResult('SUBTRACT')    
 }
 addBtn.addEventListener('click',addNum);
 subtractBtn.addEventListener('click',subtractNum);
