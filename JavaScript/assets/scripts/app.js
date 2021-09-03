@@ -8,10 +8,10 @@ function getUserNumberInput(){
     return parseInt(userInput.value);
 
 }
-function calculationDescription(operator, enteredNum,firsNum){
-     const calcDescription  = `${firsnum} ${operator} ${enteredNum}`
-     return calcDescription
-}
+/*function calculationDescription(operator, enteredNum,firsNum){
+     const calcDescription  = `${firsnum} ${operator} ${enteredNum}`;
+    
+}*/
 
 function writeLog(oper,fNum,secdNum,resltNum){
     logEntry = {
@@ -27,42 +27,35 @@ function writeLog(oper,fNum,secdNum,resltNum){
 
 function calculateResult(calculationType){
     const gotNum = getUserNumberInput();
-    const calcDescription = `${currentResult} + ${gotNum}`;
     const initialNum = currentResult;
     let mathOperator;
-    if(calculationType == 'ADD'){
+    
+    if(calculationType === 'ADD'){
         currentResult += gotNum;
         mathOperator = '+'
-    }
-    else{
+    }else if(calculationType === 'SUBTRACT'){
         currentResult -= gotNum;
         mathOperator = '-'
+    }else if(calculationType === 'MULTIPLY'){
+         currentResult *= gotNum;
+         mathOperator = '*';
 
-    }    
-    outputResult(currentResult, calculationDescription);
-    writeLog(calculationType,gotNum,initialNum,currentResult)
+    }else if (calculationType === 'DIVIDE') {
+         currentResult /= gotNum;
+         mathOperator = '/';
+    }
+    outputResult(currentResult);
+    writeLog(calculationType,gotNum,initialNum,currentResult);
 }
-
+    
 function addNum(){
     calculateResult('ADD');    
 }
-
 function multiplyNum(){
-    const gotNum = getUserNumberInput();
-    const calcDescription = `${currentResult} * ${gotNum}`;
-    const initialNum = currentResult;
-    currentResult *= gotNum;
-    outputResult(currentResult, calcDescription);
-    writeLog('MULTIPLY',gotNum,initialNum,currentResult)
+    calculateResult('MULTIPLY');  
 }
-
 function divideNum(){
-    const gotNum = getUserNumberInput();
-    const calcDescription = `${currentResult} / ${gotNum}`;
-    const initialNum = currentResult;
-    currentResult /= gotNum;
-    outputResult(currentResult, calcDescription);
-    writeLog('DIVIDE',gotNum,initialNum,currentResult)
+    calculateResult('DIVIDE');  
 }
 function subtractNum(){
     calculateResult('SUBTRACT')    
