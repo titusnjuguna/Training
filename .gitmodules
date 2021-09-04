@@ -1,0 +1,3 @@
+[submodule "monsterKiller"]
+	path = monsterKiller
+	url = https://github.com/titusnjuguna/Training.git
