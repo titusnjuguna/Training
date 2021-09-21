@@ -1,0 +1,28 @@
+.card {
+  width: 30em;
+  height: 30em;
+}
+#app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+ul #menu li {
+  display: inline-block;
+  list-style: none;
+}
+.color-box {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+}
+.disabledButton {
+  background-color: chocolate;
+}
+.strg {
+  text-decoration: line-through;
+}
+nav {
+  height: 30px;
+}
